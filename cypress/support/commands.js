@@ -16,7 +16,15 @@
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
-//
+
+Cypress.Commands.add('isDisplayed', (locator) => {
+    locator.should("be.visible")
+})
+
+Cypress.Commands.add('typeAssert', (locator, input) => {
+    locator.type(input).should("have.value", input)
+})
+
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
