@@ -1,4 +1,8 @@
 /// <reference types="cypress" />
+import userData from "../../fixtures/userData.json"
+import MyAccount from "../../support/pageObjects/myAccount.cy";
+const myAccount = new MyAccount()
+
 
 class LoginPage {
 
@@ -25,6 +29,21 @@ class LoginPage {
     get loginError() {
         return cy.get('div[class="alert alert-error alert-danger"]')
     }
+
+    logIn() {
+        cy.visit('')
+        this.navigateTo
+        this.confirmOnPage
+        cy.isDisplayed(this.signInButton)
+        cy.typeAssert(this.loginName, userData.login)
+        cy.typeAssert(this.loginPassword, userData.password)
+        this.signInButton.click()
+        myAccount.authenticatedLocator.then(function(ele) {
+            const autenticationText = ele.text()
+            expect(autenticationText.includes(userData.firstName)).to.be.true
+        })
+    }
+
     }
     
     export default LoginPage

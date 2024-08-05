@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+
 class MyAccount {
 
     get myAccountConfirmation() {
