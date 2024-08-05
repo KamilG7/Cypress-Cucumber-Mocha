@@ -22,6 +22,9 @@ class LoginPage {
         return cy.get('[id="loginFrm_password"]')
     }
     
+    get loginError() {
+        return cy.get('div[class="alert alert-error alert-danger"]')
+    }
     }
     
     export default LoginPage

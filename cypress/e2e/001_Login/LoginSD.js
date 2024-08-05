@@ -36,3 +36,14 @@ Then('the User is authenticated', () => {
 Then('the User is on the account page', () => {
     cy.isDisplayed(myAccount.myAccountConfirmation)
 })
+
+When('User enter incorrect email: {string} or password: {string}', (email, password) => {
+    if (email != "BLANK") {
+    cy.typeAssert(loginPage.loginName, email) }
+    if (password != "BLANK") {
+    cy.typeAssert(loginPage.loginPassword, password) }
+})
+
+Then('User should see correct error {string}', (error) => {
+    loginPage.loginError.should("include.text", error)
+})
