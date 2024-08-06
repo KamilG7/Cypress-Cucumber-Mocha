@@ -54,7 +54,6 @@ Then('User should see relevant search results for toilette spray', () => {
             if(productName.includes(firstWord) || productName.includes(secondWord)) {
                 cy.log('ok')
             } else {cy.contains("Sorry, something went wrong")}
-
             
         }
     })

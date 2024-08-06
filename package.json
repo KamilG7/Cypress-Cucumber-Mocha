@@ -6,6 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
+"cypress-cucumber-preprocessor":
+{
+  "json": {
+    "enabled": true,
+    "output": "cypress/reports/results.json"
+  }
+},
+
   "author": "Kamil Galdy",
   "license": "ISC",
   "dependencies": {

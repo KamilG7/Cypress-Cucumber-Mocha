@@ -22,6 +22,7 @@ Cypress.Commands.add('isDisplayed', (locator) => {
 })
 
 Cypress.Commands.add('typeAssert', (locator, input) => {
+    locator.clear()
     locator.type(input).should("have.value", input)
 })
 

@@ -6,6 +6,10 @@ class SearchResults {
         return cy.get('[class="prdocutname"][title]')
     }
 
+    get addToCart() {
+        return cy.get('a[title="Add to Cart"]')
+    }
+
     }
     
     export default SearchResults
