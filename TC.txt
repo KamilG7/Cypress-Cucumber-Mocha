@@ -1,0 +1,80 @@
+Feature: User Login
+
+Scenario: [S_1001, TC_1001] Log in with valid Credentials
+  Given the User is on Login Page
+  And Sing In button is displayed
+  When the User enters their Username and Password
+  And the User click Sing In button
+  Then the User is authenticated
+  And the User is on the account page
+
+Scenario: [S_1002, TC_1002, TC_1003, TC_1004, TC_1005, TC_1006, TC_1007] Log In with invalid credentials
+  Given User is on the Log In page
+  When User enter incorrect "<email>" or "<password>"
+  And User click Log In button
+  Then User should see correct error "<message>"
+
+Examples:
+      | email            | password    | message |
+      | invalidemail     | password123 | error   |
+      | user@example.com | wrongpass   | error   |
+      |                  | password123 | error   |
+      | user@example.com |             | error   |
+      |                  |             | error   |
+
+
+------------
+
+Feature: User Registration
+  As a new user
+  I want to register on the website
+  So that I can access my account
+
+  Scenario: [S_1003, TC_1008] Successful Registration
+    Given I am on the registration page
+    When I fill in the registration form with valid details
+    And I click the register button
+    Then I should be redirected to the dashboard
+    And I should see a welcome message
+
+-----------
+
+Feature: Products Search Functionality
+
+Scenario: [S_1004, TC_1009] Perform a Basic Search
+  Given User is on the homepage of the e-commerce site
+  When User enter "cream" into the search bar
+  Then User should see relevant search results for creams
+
+Scenario: [S_1005, TC_1010] Perform an Empty Search
+  Given User is on the homepage of the e-commerce site
+  When User submit an empty search query
+  Then User should see a message indicating that no search results were found
+
+Scenario: [S_1006, TC_1011] Search with Multiple Keywords
+    Given User is on the homepage of the e-commerce site
+    When User enters "shaving cream" into the search bar
+    Then User should see relevant search results for shaving cream
+
+----------
+
+Feature: Shopping Cart Functionality on E-commerce Site
+
+Scenario: [S_1007, TC_1012] Add Product to Cart
+  Given User is viewing a product
+  When User click on the "Add to Cart" button
+  Then the product should be added to Users cart
+
+Scenario: [S_1008, TC_1013] Update Quantity of Product in Cart
+  Given User added products to cart
+  When User increase the quantity of a product to 2
+  Then the quantity of the product in Users cart should be updated to 2
+
+Scenario: [S_1009, TC_1014] Remove Product from Cart
+  Given User have products in cart
+  When User click on the remove button next to a product
+  Then the product should be removed from cart
+
+----------
+
+
